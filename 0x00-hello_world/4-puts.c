@@ -1,2 +1,2 @@
 #!/bin/bash
-./alx
+gcc main.c -o alx
