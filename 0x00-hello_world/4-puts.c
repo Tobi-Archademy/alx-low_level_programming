@@ -2,7 +2,7 @@
 
 int main(void)
 {
-fputs("Programming is like building a multilingual puzzle\n", stdout);
+puts("Programming is like building a multilingual puzzle\n", stdout);
 getchar();
 return 0;
 }
