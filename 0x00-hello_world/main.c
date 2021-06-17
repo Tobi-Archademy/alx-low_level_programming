@@ -2,6 +2,7 @@
 
 int main(void)
 {
-printf("Hello World!\n");
-return (0);
+  puts("Programming is like building a multilingual puzzle\n");
+  getchar();
+  return (0);
 }
