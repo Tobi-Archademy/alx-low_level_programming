@@ -8,9 +8,13 @@
  */
 int main(void)
 {
-int i;
-for (i = 0; i < 10; i++)
-printf("%i", i);
+int ch;
+for (ch = 97; ch < 123; ch++)
+if (ch == 101 || ch == 113)
+{
+continue;
+putchar(ch);
+}
 putchar('\n');
 return (0);
 }
