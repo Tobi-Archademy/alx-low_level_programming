@@ -1,6 +1,7 @@
 #include "holberton.h"
 /**
-* main - check the code for ALX School students.
+* print_alphabet - a function that prints the alphabet, in lowercase
+*
 *
 * Return: Always 0.
 */
