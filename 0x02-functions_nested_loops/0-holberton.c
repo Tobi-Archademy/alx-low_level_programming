@@ -1,20 +1,15 @@
-#include <stdio.h>
+#include "holberton.h"
 /**
- * main - check the code for ALX School students.
- *
- * Return: Always 0.
- */
+* main - check the code for ALX School students.
+*
+* Return: Always 0.
+*/
 int main(void)
 {
-putchar('H');
-putchar('o');
-putchar('l');
-putchar('b');
-putchar('e');
-putchar('r');
-putchar('t');
-putchar('o');
-putchar('n');
-putchar('\n');
+int c;
+char phrase[] = "Holberton";
+for (c = 0; c < 9; c++)
+_putchar(phrase[c]);
+_putchar('\n');
 return (0);
 }
