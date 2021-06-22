@@ -1,19 +1,17 @@
-#include <stdio.h>
+#include "holberton.h"
 /**
- * main - check the code for ALX School students.
+ * print_alphabet_x10 - it is a function used to print alphabet on 10 lines.
  *
  * Return: Always 0.
  */
-void print_alphabet_x10(void);
-int main(void)
+void print_alphabet_x10(void)
 {
-int i = 0, ch;
+int i = 0, a;
 while (i < 10)
 {
-for (ch = 97; ch <= 122; ch++)
-putchar(ch);
-putchar('\n');
+for (a = 97; a <= 122; a++)
+_putchar(a);
+_putchar('\n');
 i++;
 }
-return (0);
 }
