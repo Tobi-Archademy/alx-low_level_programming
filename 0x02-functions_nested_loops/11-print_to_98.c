@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * print_to_98 - a function used to print all natural numbers 0-98.
  *
@@ -9,10 +10,10 @@ void print_to_98(int n)
 {
 for (n = 0; n <= 98; n++)
 {
-_putchar(n);
+putchar(n);
 if (n < 98)
-_putchar(',');
-_putchar(' ');
+putchar(',');
+putchar(' ');
 }
-_putchar('\n');
+putchar('\n');
 }
