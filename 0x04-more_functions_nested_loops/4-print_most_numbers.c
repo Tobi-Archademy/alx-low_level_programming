@@ -15,9 +15,8 @@ if (n == 2 || n == 4)
 n++;
 continue;
 }
-
-_putchar(n);
 n++;
-}
 _putchar(n + '0');
+}
+_putchar('\n');
 }
