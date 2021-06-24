@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * _idigit - a function used to check if a character is a digit.
+ * _isdigit - a function used to check if a character is a digit.
  *
  * @c: takes in the argument.
  *
