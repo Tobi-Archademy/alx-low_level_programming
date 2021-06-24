@@ -10,9 +10,8 @@ int n = 0;
 while (n < 10)
 {
 
-if
+if (n == 2 || n == 4)
 {
-(n == 2) || (n == 4)
 n++;
 continue;
 }
