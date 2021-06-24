@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 /**
  * main - prints "Fizz" for numbers divisible by 3,
  * prints "Buzz" for numbers divisible by 5,
@@ -9,7 +10,8 @@
 int main(void)
 {
 int i;
-for (i = 99; i <= 99; i++)
+
+for (i = 1; i <= 99; i++)
 {
 if (i % 15 == 0)
 printf("FizzBuzz ");
