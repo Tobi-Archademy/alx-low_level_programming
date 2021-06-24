@@ -10,7 +10,10 @@ int i = 0, a;
 while (i < 10)
 {
 for (a = 0; a <= 14; a++)
+{
 _putchar(a);
 _putchar('\n');
+}
 i++;
+}
 }
