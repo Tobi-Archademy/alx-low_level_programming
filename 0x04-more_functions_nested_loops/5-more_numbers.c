@@ -19,8 +19,8 @@ _putchar((a / 10) + '0');
 _putchar((a % 10) + '0');
 a++;
 }
-a = 10;
-_putchar(10);
+a = 0;
 i++;
+_putchar('\n');
 }
 }
