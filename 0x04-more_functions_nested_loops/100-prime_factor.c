@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 /**
- * main - entry point for program
- *
  * Maxprime - a function the largest factor of a number
  *
  * @num: takes the integer argument
+ *
+ *
  * Return: Always 0 (success)
  */
 
@@ -34,8 +34,12 @@ if (num > 2)
 CurrMaxprime = num;
 return (CurrMaxprime);
 }
-
-int main(void) /*Description: main - entry point for program*/
+/**
+* main - entry point for a program
+*
+* Return: Always 0 (success)
+*/
+int main(void)
 {
 long long x;
 x = 612852475143;
