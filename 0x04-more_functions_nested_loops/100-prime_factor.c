@@ -1,49 +1,19 @@
 #include <stdio.h>
-#include <math.h>
+
 /**
- * Maxprime - a function the largest factor of a number
+ * main - prints the largest prime factor of 612852475143
  *
- * @num: takes the integer argument
- *
- *
- * Return: Always 0 (success)
+ * Return: always 0
  */
-
-long long Maxprime(long long num)
-{
-long long CurrMaxprime = -1;
-if (num % 2 == 0)
-{
-CurrMaxprime = 2;
-while (num % 2 == 0)
-{
-num = num / 2;
-}
-}
-
-for (long long i = 3; i <= sqrt(num); i += 2)
-{
-while (num % i == 0)
-{
-CurrMaxprime = i;
-num = num / i;
-}
-}
-
-if (num > 2)
-CurrMaxprime = num;
-return (CurrMaxprime);
-}
-/**
-* main - entry point for a program
-*
-* Return: Always 0 (success)
-*/
 int main(void)
 {
-long long x;
-x = 612852475143;
+unsigned long int i, n = 612852475143;
 
-printf("Largest prime factor of %lld is: %lld\n", x);
+for (i = 3; i < 782849; i = i + 2)
+{
+while ((n % i == 0) && (n != i))
+n = n / i;
+}
+printf("%lu\n", n);
 return (0);
 }
