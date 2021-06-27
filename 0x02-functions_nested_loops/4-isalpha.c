@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "holberton.h"
 /**
  * _isalpha - a function used to check if an alphabet is of upper or lowercase.
@@ -8,10 +9,11 @@
  */
 int _isalpha(int c)
 {
-if (c >= 'A' && c <= 'Z')
+if (c >= 65 && c <= 90)
 {
 return (1);
 }
-else
+else if (c >= 97 && <= 122)
+{
 return (0);
 }
