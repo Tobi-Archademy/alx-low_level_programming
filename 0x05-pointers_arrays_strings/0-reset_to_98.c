@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <stdio>
+#include <stdio.h>
 /**
  * reset_to_98 - set the integer to 402
  * @n: a pointer the integer we want to set to 402
