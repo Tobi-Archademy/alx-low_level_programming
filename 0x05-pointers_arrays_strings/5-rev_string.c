@@ -1,29 +1,23 @@
 #include "holberton.h"
-#include <string.h>
 /**
- * rev_string - used to print a string in reverse order
- * @s: a pointer holding a character datatype
+ * rev_string - reverses given string
  *
- * Return: nothing
+ * @s: string to reverse
+ *
+ * Return: always void
  */
 void rev_string(char *s)
 {
-int l, c;
-char *b_ptr, *e_ptr, ch;
-l = strlen(s);
+char *end = s;
+char store;
 
-for (c = 0; c < l - 1; c++)
+while (*end)
+end++; /* set pos of end pointer to point to last element */
+end = end - 1; /* set end pos to end -1 b/c end is really '\0' */
+while (s < end) /* stop once we get to last address */
 {
-e_ptr++;
-}
-
-for (c = 0; c < 1 / 2; c++)
-{
-ch = *b_ptr;
-*b_ptr = *e_ptr;
-*e_ptr = ch;
-
-b_ptr++;
-e_ptr++;
+store = s; /* set store ch to s[currentPos] */
+s++ = *end; /* set position of s = pos end, and increment s */
+end-- = store; /* set pos of end to stored char and increment */
 }
 }
