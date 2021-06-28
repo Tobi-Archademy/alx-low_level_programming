@@ -12,9 +12,6 @@ int l, c;
 char *b_ptr, *e_ptr, ch;
 l = strlen(s);
 
-b_ptr = s;
-e_ptr = s;
-
 for (c = 0; c < l - 1; c++)
 {
 e_ptr++;
