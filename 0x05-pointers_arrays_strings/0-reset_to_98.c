@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * reset_to_98 - set the integer to 402
  * @n: a pointer the integer we want to set to 402
@@ -8,8 +7,11 @@
  */
 void reset_to_98(int *n)
 {
-printf("Value of 'n': %p\n", n);
-printf("Address of 'm': %p\n", &n);
+int p;
+int *n;
 
-*n = 98;
+p = 98;
+n = &p;
+
+_putchar(n);
 }
