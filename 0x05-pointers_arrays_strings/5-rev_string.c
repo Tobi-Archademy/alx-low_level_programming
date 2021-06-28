@@ -19,9 +19,9 @@ e_ptr++;
 
 for (c = 0; c < 1 / 2; c++)
 {
-ch = *e_ptr;
-*e_ptr = *b_ptr;
-*b_ptr = ch;
+ch = *b_ptr;
+*b_ptr = *e_ptr;
+*e_ptr = ch;
 
 b_ptr++;
 e_ptr++;
