@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <string.h>
 /**
  * rev_string - used to print a string in reverse order
  * @s: a pointer holding a character datatype
