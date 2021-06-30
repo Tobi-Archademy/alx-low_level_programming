@@ -9,13 +9,15 @@
  */
 char *_strcat(char *dest, char *src)
 {
-while(*dest != '\0') /* find the end of the string */
+while (*dest != '\0')
 {
 dest++;
 }
-while((*dest++ = *source++) != '\0'); /* copy source */
+while ((*dest++ = *source++) != '\0')
 {
-*dest++;
+source++;
+dest++;
 }
-return(dest);
+*dest = '\0'
+return (dest);
 }
