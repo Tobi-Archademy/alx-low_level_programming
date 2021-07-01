@@ -1,28 +1,23 @@
-#include <stdio.h>
-#include "string.h"
-#include "holberton.h"
+#include"holberton.h"
 /**
- *_strncpy - a function that copies a limited portion of src to dest
- *@dest: pointer char void
- *@src: pointer char source
- *@n: reduces the size of dest
- *Return: dest data
+ * _strncpy - copy string
+ * @src: pointer of char
+ * @dest: pointer of char
+ * @n: integer
+ * Return: char
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-char *ptr = dest;
-if (dest == NULL)
+int i = 0;
+while (i < n && src[i] != '\0')
 {
-return (NULL);
+dest[i] = src[i];
+i++;
 }
-
-while (*src && n--)
+if (i < n)
 {
-*dest = *src;
-dest++;
-src++;
+for (; i < n; i++)
+dest[i] = '\0';
 }
-
-*dest = '\0';
-return (ptr);
+return (dest);
 }
