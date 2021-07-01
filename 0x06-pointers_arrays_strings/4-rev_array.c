@@ -9,13 +9,19 @@
  */
 void reverse_array(int *a, int n)
 {
-int arr[n];
-for (a = arr; a <= a + n - 1)
+int i;
+int *first = a;
+int *last = a + n - 1;
+while (first < last)
 {
-a++;
+int temp = *first;
+*first = *last;
+*last = temp;
+first++;
+last--;
 }
-for (a = a + n - 1; a >= arr)
+for (i = 0; i < n;)
 {
-a--;
+i++;
 }
 }
