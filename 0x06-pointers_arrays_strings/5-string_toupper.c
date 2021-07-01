@@ -3,7 +3,7 @@
 /**
  *string_toupper - a function that changes a string to uppercase
  *
- *@ptr: a pointer to a variable of the type char
+ *@s: a pointer to a variable of the type char
  *
  *Return: dest data
  */
@@ -12,11 +12,10 @@ char *string_toupper(char *s)
 int i;
 for (i = 0; s[i]; i++)
 {
-if (s[i] > 'a' && s[i] <= 'z')
+if (s[i] >= 97 && s[i] <= 122)
 {
-s[i] = s[i] - 32;
-s[i]++;
+s[i] -= 32;
 }
 }
-return (0);
+return (s);
 }
