@@ -7,17 +7,16 @@
  *
  *Return: dest data
  */
-char *string_toupper(char *ptr)
+char *string_toupper(char *s)
 {
-char str[0], *ptr;
-
-while (str[0] != '\0')
+int i;
+for (i = 0; s[i]; i++)
 {
-if (str[0] >= 97 && str[0] <= 122)
+if (s[i] > 'a' && s[i] <= 'z')
 {
-str[0] = str[0] - 32;
+s[i] = s[i] - 32;
+s[i]++;
 }
-str[]++;
 }
-*ptr = str[];
+return (0);
 }
