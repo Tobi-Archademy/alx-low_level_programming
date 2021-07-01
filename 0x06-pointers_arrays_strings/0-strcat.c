@@ -9,15 +9,16 @@
  */
 char *_strcat(char *dest, char *src)
 {
-while (*dest != '\0')
+while (*dest)
 {
 dest++;
 }
-while ((*dest++ = *source++) != '\0')
+while (*src++)
 {
-source++;
+*dest = *src;
+src++;
 dest++;
 }
-*dest = '\0'
+*dest = '\0';
 return (dest);
 }
