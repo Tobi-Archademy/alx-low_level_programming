@@ -20,5 +20,4 @@ str[i] = str[i] - 32;
 }
 i++;
 }
-*ptr = str[i];
 }
