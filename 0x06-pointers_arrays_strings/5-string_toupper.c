@@ -9,15 +9,15 @@
  */
 char *string_toupper(char *ptr)
 {
-char str[], *ptr;
-int i = 0;
+char str[0], *ptr;
 
-while (str[i] != '\0')
+while (str[0] != '\0')
 {
-if (str[i] >= 97 && str[i] <= 122)
+if (str[0] >= 97 && str[0] <= 122)
 {
-str[i] = str[i] - 32;
+str[0] = str[0] - 32;
 }
-i++;
+str[]++;
 }
+*ptr = str[];
 }
