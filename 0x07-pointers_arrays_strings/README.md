@@ -1,0 +1,1 @@
+This **directory** contains all project works on _pointers_arrays and strings_
