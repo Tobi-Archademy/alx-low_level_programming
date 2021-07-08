@@ -67,5 +67,6 @@ int get_sqrt(int n, int sqr);
 int is_palindrome(char *s);
 int get_palindrome(char *s, int i, int j, int k);
 int strlengr(char *a, int i);
+int wildcmp(char *s1, char *s2);
 
 #endif
