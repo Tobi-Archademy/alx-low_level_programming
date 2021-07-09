@@ -1,0 +1,1 @@
+This directory contains **static libraries** created by me. 
