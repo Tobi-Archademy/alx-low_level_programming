@@ -28,6 +28,7 @@ while (*(s2 + j))
 {
 j++;
 }
+j++;
 ptr = malloc(sizeof(char) * (i + j));
 
 if (ptr == NULL)
