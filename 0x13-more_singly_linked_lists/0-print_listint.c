@@ -1,22 +1,24 @@
-#include "lists.h"
+#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
+#include "lists.h"
+
 /**
- * print_listint - prints the elements in linked list
- * @h: head of listint_t type
+ * print_listint - check the code for Holberton School students.
+ * @h: Head node
  *
- * Return: size_t, number of nodes.
+ * Return: Size of the list or -1 if error.
  */
 size_t print_listint(const listint_t *h)
 {
-size_t n_nodes = 0;
-const listint_t *temp_h;
+	unsigned int count = 0;
 
-temp_h = h;
-while (temp_h)
-{
-printf("%d\n", temp_h->n);
-temp_h = temp_h->next;
-n_nodes++;
-}
-return (n_nodes);
+	while (h != NULL)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+		count++;
+	}
+
+	return (count);
 }

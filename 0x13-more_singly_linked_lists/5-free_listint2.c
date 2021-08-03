@@ -1,20 +1,28 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
+
 /**
- * free_listint2 - frees a linked list and sets head to NULL
- * @head: double pointer to head of list
+ * free_listint2 -frees a list_t list.
+ * @head: Double pointer to the actual position of the linked list (struct)
  *
- * Return: always void.
+ * Return: Nothing.
  */
 void free_listint2(listint_t **head)
 {
-if (head == NULL)
-{
-return;
-}
-while (*head)
-{
-free(*head);
-*head = (*head)->next;
-}
-head = NULL;
+	listint_t *actual_node;
+	listint_t *next_node;
+
+	actual_node = *head;
+
+	while (actual_node != NULL)
+	{
+		next_node = actual_node->next;
+		actual_node->next = NULL;
+		free(actual_node);
+		actual_node = next_node;
+	}
+	*head = NULL;
+
 }
