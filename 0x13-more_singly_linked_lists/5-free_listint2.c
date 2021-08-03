@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
 #include "lists.h"
 
@@ -11,18 +10,17 @@
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *actual_node;
-	listint_t *next_node;
 
-	actual_node = *head;
+listint_t *next_node;
 
-	while (actual_node != NULL)
-	{
-		next_node = actual_node->next;
-		actual_node->next = NULL;
-		free(actual_node);
-		actual_node = next_node;
-	}
-	*head = NULL;
-
+if (head == NULL)
+{
+return;
+}
+while (*head != NULL)
+{
+next_node = (*head)->next;
+free(*head);
+*head = next_node;
+}
 }
