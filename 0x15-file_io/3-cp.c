@@ -1,92 +1,127 @@
-#include "holberton.h"
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-/**
- * main - function that copies the content of a file to another file.
- * @argc: Filename
- * @argv: Text to add to the file.
- *
- * Return: 1 - Success or -1 - Failure.
- */
-int main(int argc, char *argv[])
-{
-int fd_src, fd_dest, status;
 
-if (argc != 3 || argv == NULL)
+/**
+ * check97 - checks for the correct number of arguments
+ * @argc: number of arguments
+ *
+ * Return: void
+ */
+void check97(int argc)
+{
+if (argc != 3)
 {
 dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
-
-fd_src = open(argv[1], O_RDONLY);
-if (fd_src == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-exit(98);
-}
-fd_dest = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-if (fd_dest == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-exit(99);
-}
-
-status = cpy_file(fd_src, fd_dest, argv[1], argv[2]);
-
-return (status);
 }
 
 /**
- * cpy_file - function that copies the content of a file to another file.
- * @fd_src: File descriptor source file
- * @fd_dest: File descriptor destination file
- * @name_source: Source file
- * @name_dest: Destination file
+ * check98 - checks that file_from exists and can be read
+ * @check: checks if true of false
+ * @file: file_from name
+ * @fd_from: file descriptor of file_from, or -1
+ * @fd_to: file descriptor of file_to, or -1
  *
- * Return: 1 - Success or -1 - Failure.
+ * Return: void
  */
-int cpy_file(int fd_src, int fd_dest, char *name_source, char *name_dest)
+void check98(ssize_t check, char *file, int fd_from, int fd_to)
 {
-int bytes_read, bytes_wrote, close_fd_src, close_fd_dest;
-char buff[1024];
-
-do {
-bytes_read = read(fd_src, buff, 1024);
-
-if (bytes_read == -1)
+if (check == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", name_source);
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+if (fd_from != -1)
+{
+close(fd_from);
+}
+if (fd_to != -1)
+{
+close(fd_to);
+}
 exit(98);
 }
+}
 
-bytes_wrote = write(fd_dest, buff, bytes_read);
-
-if (bytes_wrote == -1 || bytes_read != bytes_wrote)
+/**
+ * check99 - checks that file_to was created and/or can be written to
+ * @check: checks if true of false
+ * @file: file_to name
+ * @fd_from: file descriptor of file_from, or -1
+ * @fd_to: file descriptor of file_to, or -1
+ *
+ * Return: void
+ */
+void check99(ssize_t check, char *file, int fd_from, int fd_to)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", name_dest);
+if (check == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+if (fd_from != -1)
+{
+close(fd_from);
+}
+if (fd_to != -1)
+{
+close(fd_to);
+}
 exit(99);
 }
-
-} while (bytes_read == 1024);
-
-close_fd_src = close(fd_src);
-
-if (close_fd_src == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_src);
-exit(100);
 }
 
-close_fd_dest = close(fd_dest);
-if (close_fd_dest == -1)
+/**
+ * check100 - checks that file descriptors were closed properly
+ * @check: checks if true or false
+ * @fd: file descriptor
+ *
+ * Return: void
+ */
+void check100(int check, int fd)
 {
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_dest);
+if (check == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 exit(100);
 }
+}
+/**
+ * main - opies the content of a file to another file.
+ * @argc: number of arguments passed
+ * @argv: array of pointers to the arguments
+ *
+ * Return: 0 on success
+ */
+int main(int argc, char *argv[])
+{
+int fd_from, fd_to, close_to, close_from;
+ssize_t lenr, lenw;
+char buffer[1024];
+mode_t file_perm;
 
+check97(argc);
+fd_from = open(argv[1], O_RDONLY);
+check98((ssize_t)fd_from, argv[1], -1, -1);
+file_perm = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, file_perm);
+check99((ssize_t)fd_to, argv[2], fd_from, -1);
+lenr = 1024;
+while (lenr == 1024)
+{
+lenr = read(fd_from, buffer, 1024);
+check98(lenr, argv[1], fd_from, fd_to);
+lenw = write(fd_to, buffer, lenr);
+if (lenw != lenr)
+{
+lenw = -1;
+}
+check99(lenw, argv[2], fd_from, fd_to);
+}
+close_to = close(fd_to);
+close_from = close(fd_from);
+check100(close_to, fd_to);
+check100(close_from, fd_from);
 return (0);
 }
