@@ -5,6 +5,7 @@ that returns the perimeter of an iland
 (described as an array of integers)
 """
 
+
 def island_perimeter(grid):
     """
         Argument
